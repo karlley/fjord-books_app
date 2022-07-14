@@ -24,3 +24,10 @@ en:
       delete: Delete
       new: New
       back: Back
+      confirm: Are you sure?
+
+  controllers:
+    success:
+      create: Book was successfully updated.
+      update: Book was successfully updated.
+      destroy: Book was successfully destroyed.

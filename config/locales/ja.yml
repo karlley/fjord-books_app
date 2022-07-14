@@ -24,3 +24,10 @@ ja:
       delete: 削除
       new: 新規作成
       back: 戻る
+      confirm: 本当によろしいですか？
+
+  controllers:
+    success:
+      create: 登録されました。
+      update: 更新されました。
+      destroy: 削除されました。
