@@ -6,7 +6,6 @@ en:
       title: New Book
     edit:
       title: Editing Book
-
   activerecord:
     models:
       book: Book
@@ -16,7 +15,6 @@ en:
         memo: Memo
         author: Author
         picture: Picture
-
   views:
     common:
       show: Show
@@ -25,7 +23,6 @@ en:
       new: New
       back: Back
       confirm: Are you sure?
-
   controllers:
     success:
       create: Book was successfully updated.

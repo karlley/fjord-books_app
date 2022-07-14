@@ -6,7 +6,6 @@ ja:
       title: 書籍の登録
     edit:
       title: 書籍の編集
-
   activerecord:
     models:
       book: 書籍
@@ -16,7 +15,6 @@ ja:
         memo: 概要
         author: 著者
         picture: 画像
-
   views:
     common:
       show: 詳細
@@ -25,7 +23,6 @@ ja:
       new: 新規作成
       back: 戻る
       confirm: 本当によろしいですか？
-
   controllers:
     success:
       create: 登録されました。
