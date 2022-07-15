@@ -6,6 +6,12 @@ ja:
       title: 書籍の登録
     edit:
       title: 書籍の編集
+    create:
+      success: 登録されました。
+    update:
+      success: 更新されました。
+    destroy:
+      success: 削除されました。
   activerecord:
     models:
       book: 書籍
@@ -23,8 +29,3 @@ ja:
       new: 新規作成
       back: 戻る
       confirm: 本当によろしいですか？
-  controllers:
-    success:
-      create: 登録されました。
-      update: 更新されました。
-      destroy: 削除されました。
