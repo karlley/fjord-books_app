@@ -29,3 +29,7 @@ en:
       new: New
       back: Back
       confirm: Are you sure?
+  helpers:
+    submit:
+      create: "Create %{model}"
+      update: "Update %{model}"
