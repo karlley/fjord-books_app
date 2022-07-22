@@ -7,7 +7,7 @@ en:
     edit:
       title: Editing Book
     create:
-      success: Book was successfully updated.
+      success: Book was successfully created.
     update:
       success: Book was successfully updated.
     destroy:
