@@ -6,12 +6,7 @@ en:
       title: New Book
     edit:
       title: Editing Book
-    create:
-      success: Book was successfully created.
-    update:
-      success: Book was successfully updated.
-    destroy:
-      success: Book was successfully destroyed.
+
   activerecord:
     models:
       book: Book
@@ -21,6 +16,7 @@ en:
         memo: Memo
         author: Author
         picture: Picture
+
   views:
     common:
       show: Show
@@ -29,6 +25,16 @@ en:
       new: New
       back: Back
       confirm: Are you sure?
+
+  controllers:
+    common:
+      create:
+        success: "%{model} was successfully created."
+      update:
+        success: "%{model} was successfully updated."
+      destroy:
+        success: "%{model} was successfully destroyed."
+
   helpers:
     submit:
       create: "Create %{model}"

@@ -6,12 +6,7 @@ ja:
       title: 書籍の登録
     edit:
       title: 書籍の編集
-    create:
-      success: 登録されました。
-    update:
-      success: 更新されました。
-    destroy:
-      success: 削除されました。
+
   activerecord:
     models:
       book: 書籍
@@ -21,6 +16,7 @@ ja:
         memo: 概要
         author: 著者
         picture: 画像
+
   views:
     common:
       show: 詳細
@@ -29,6 +25,16 @@ ja:
       new: 新規作成
       back: 戻る
       confirm: 本当によろしいですか？
+
+  controllers:
+    common:
+      create:
+        success: "%{model}が登録されました。"
+      update:
+        success: "%{model}が更新されました。"
+      destroy:
+        success: "%{model}が削除されました。"
+
   helpers:
     submit:
       create: "%{model}を作成"
