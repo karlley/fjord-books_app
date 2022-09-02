@@ -15,8 +15,10 @@
   <p class="alert"><%= alert %></p>
 
   <% if user_signed_in? %>
-  <p>Email: <%= current_user.email %></p>
-  <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
+  <p>User: <%= current_user.email %></p>
+  <%= link_to 'Profile', user_path(current_user) %>
+  <%= link_to 'All Users', users_path %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
   <% end %>
 
   <%= yield %>
