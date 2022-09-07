@@ -4,4 +4,7 @@
 <p>Address: <%= @user.address %></p>
 <p>Profile: <%= @user.profile %></p>
 
+<% if @user == current_user %>
 <%= link_to 'Edit', edit_user_registration_path %>
+<%= link_to 'Delete', user_registration_path, method: :delete %>
+<% end %>
