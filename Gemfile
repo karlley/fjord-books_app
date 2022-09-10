@@ -63,3 +63,4 @@ gem 'net-smtp'
 gem 'carrierwave'
 gem 'devise'
 gem 'kaminari'
+gem 'dotenv-rails', groups: [:development, :test]
