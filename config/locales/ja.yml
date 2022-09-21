@@ -212,9 +212,12 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      logout: ログアウト
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      link_show: "%{name}詳細"
+      link_index: "%{name}一覧"
     pagination:
       first: '最初'
       last: '最後'

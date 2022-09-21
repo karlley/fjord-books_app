@@ -220,9 +220,12 @@ en:
       destroy: Destroy
       new: "New record"
       back: Back
+      logout: Logout
       delete_confirm: "Are you sure?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      link_show: "Show %{name}"
+      link_index: "All %{name}"
   controllers:
     common:
       notice_create: "%{name} was successfully created."

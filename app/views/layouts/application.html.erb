@@ -15,10 +15,11 @@
   <p class="alert"><%= alert %></p>
 
   <% if user_signed_in? %>
-  <p>Login User: <%= current_user.email %></p>
-  <%= link_to 'Profile', user_path(current_user) %>
-  <%= link_to 'All Users', users_path %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  <p><strong><%= User.model_name.human %>: </strong><%= current_user.email %></p>
+  <%= link_to t('views.common.link_show', name: User.model_name.human), user_path(current_user) %> |
+  <%= link_to t('views.common.link_index', name: User.model_name.human), users_path %> |
+  <%= link_to t('views.common.link_index', name: Book.model_name.human), books_path %> |
+  <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete %>
   <% end %>
 
   <%= yield %>
