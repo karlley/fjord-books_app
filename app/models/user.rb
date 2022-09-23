@@ -6,5 +6,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   paginates_per 3
-  validates :zipcode, length: { is: 7 }, numericality: { only_integer: true }
+  validates :zipcode, length: { is: 7 }, numericality: { only_integer: true }, on: :update
 end
