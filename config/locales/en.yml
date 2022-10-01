@@ -215,6 +215,7 @@ en:
     pm: pm
   views:
     common:
+      app_name: BooksApp
       show: Show
       edit: Edit
       destroy: Destroy

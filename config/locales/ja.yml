@@ -207,6 +207,7 @@ ja:
     pm: 午後
   views:
     common:
+      app_name: 書籍アプリ
       show: 詳細
       edit: 編集
       destroy: 削除
