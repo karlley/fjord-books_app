@@ -2,6 +2,7 @@ en:
   activerecord:
     models:
       book: Book  #g
+      user: User
 
     attributes:
       book:
@@ -9,3 +10,8 @@ en:
         memo: Memo  #g
         picture: Picture  #g
         title: Title  #g
+      user:
+        email: Email
+        zipcode: Zipcode
+        Address: Address
+        self_introduction: Self Introduction
