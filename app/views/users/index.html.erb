@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= User.human_attribute_name(:icon) %></th>
       <th><%= User.human_attribute_name(:email) %></th>
       <th><%= User.human_attribute_name(:name) %></th>
       <th><%= User.human_attribute_name(:postal_code) %></th>
@@ -13,13 +14,19 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.postal_code %></td>
-        <td><%= user.address %></td>
-        <td><%= link_to t('views.common.show'), user %></td>
-      </tr>
+    <tr>
+      <% if user.icon.attached? %>
+      <td><%= image_tag user.icon.variant(resize_to_fit: [500, 500]).processed, class: 'user-icon' %>
+      </td>
+      <% else %>
+      <td></td>
+      <% end %>
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+      <td><%= user.postal_code %></td>
+      <td><%= user.address %></td>
+      <td><%= link_to t('views.common.show'), user %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
