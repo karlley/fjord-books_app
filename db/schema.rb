@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_231050) do
+ActiveRecord::Schema.define(version: 2022_11_10_192153) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_05_31_231050) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2021_05_31_231050) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "author"
     t.string "picture"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "follow_source_id", null: false
+    t.integer "follow_target_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_source_id", "follow_target_id"], name: "index_friendships_on_follow_source_id_and_follow_target_id", unique: true
+    t.index ["follow_source_id"], name: "index_friendships_on_follow_source_id"
+    t.index ["follow_target_id"], name: "index_friendships_on_follow_target_id"
   end
 
   create_table "users", force: :cascade do |t|
