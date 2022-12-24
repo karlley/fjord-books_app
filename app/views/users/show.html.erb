@@ -33,6 +33,18 @@
   <% end %>
 </p>
 
+<p>
+  <%= link_to followers_user_path(@user) do %>
+    <strong>フォロワー: </strong><%= "#{@user.followers.count}" %>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to followings_user_path(@user) do %>
+    <strong>フォロー: </strong><%= "#{@user.followings.count}" %>
+  <% end %>
+</p>
+
 <% if current_user != @user %>
   <div class="actions">
     <% if current_user.following?(@user) %>
