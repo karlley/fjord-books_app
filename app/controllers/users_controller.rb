@@ -10,10 +10,10 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @users = User.find(params[:id]).followings.order(:id).page(params[:page])
+    @followings = User.find(params[:id]).followings.order(:id).page(params[:page])
   end
 
   def followers
-    @users = User.find(params[:id]).followers.order(:id).page(params[:page])
+    @followers = User.find(params[:id]).followers.order(:id).page(params[:page])
   end
 end
