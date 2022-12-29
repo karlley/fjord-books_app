@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'erb_lint', require: false
   gem 'faker'
   gem 'i18n_generators'
   gem 'letter_opener_web'
@@ -43,7 +44,6 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  gem 'erb_lint', require: false
 end
 
 group :test do
@@ -62,7 +62,7 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
-gem 'kaminari'
 gem 'devise'
 gem 'devise-i18n'
 gem 'image_processing', '~> 1.2'
+gem 'kaminari'
