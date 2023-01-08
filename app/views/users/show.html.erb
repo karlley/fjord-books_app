@@ -34,25 +34,25 @@
 </p>
 
 <p>
-  <%= link_to followers_user_path(@user) do %>
+  <%= link_to user_followers_path(@user) do %>
     <strong><%= t('.followers') %>:</strong>
-    <%= "#{@user.followers.count}" %>
+    <%= @user.followers.count %>
   <% end %>
 </p>
 
 <p>
-  <%= link_to followings_user_path(@user) do %>
+  <%= link_to user_followings_path(@user) do %>
     <strong><%= t('.followings') %>:</strong>
-    <%= "#{@user.followings.count}" %>
+    <%= @user.followings.count %>
   <% end %>
 </p>
 
 <% if current_user != @user %>
   <div class="actions">
     <% if current_user.following?(@user) %>
-      <%= button_to t('.unfollow'), user_friendships_path(@user.id), method: :delete %>
+      <%= button_to t('.unfollow'), user_friendships_path(@user), method: :delete %>
     <% else %>
-      <%= button_to t('.follow'), user_friendships_path(@user.id), method: :post %>
+      <%= button_to t('.follow'), user_friendships_path(@user), method: :post %>
     <% end %>
   </div>
 <% end %>
