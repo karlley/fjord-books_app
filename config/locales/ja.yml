@@ -251,5 +251,7 @@ ja:
   friendships:
     create:
       notice_create: "フォローしました"
+      alert_create: "フォローに失敗しました"
     destroy:
       notice_destroy: "フォロー解除しました"
+      alert_destroy: "フォロー解除に失敗しました"
