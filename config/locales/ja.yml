@@ -252,8 +252,8 @@ ja:
         title: "フォロー中"
   friendships:
     create:
-      notice_create: "フォローしました"
-      alert_create: "フォローに失敗しました"
+      notice: "フォローしました"
+      alert: "フォローに失敗しました"
     destroy:
-      notice_destroy: "フォロー解除しました"
-      alert_destroy: "フォロー解除に失敗しました"
+      notice: "フォロー解除しました"
+      alert: "フォロー解除に失敗しました"
