@@ -2,9 +2,9 @@
 
 class FriendshipsController < ApplicationController
   def create
-    follow_target = User.find(params[:user_id])
-    if current_user.follow(follow_target)
-      redirect_to user_path(follow_target), notice: t('.notice')
+    target_user = User.find(params[:user_id])
+    if current_user.follow(target_user.id)
+      redirect_to user_path(target_user), notice: t('.notice')
     else
       flash.now[:alert] = t('.alert')
       render 'users/show'
@@ -12,9 +12,9 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    unfollow_target = User.find(params[:user_id])
-    if current_user.unfollow(unfollow_target)
-      redirect_to user_path(unfollow_target), notice: t('.notice')
+    target_user = User.find(params[:user_id])
+    if current_user.unfollow(target_user.id)
+      redirect_to user_path(target_user), notice: t('.notice')
     else
       flash.now[:alert] = t('.alert')
       render 'users/show'

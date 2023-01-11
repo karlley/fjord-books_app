@@ -11,15 +11,15 @@ class User < ApplicationRecord
   has_many :followings, through: :active_friendships, source: :follow_target
   has_many :followers, through: :passive_friendships, source: :follow_source
 
-  def follow(other_user)
-    active_friendships.create(follow_target_id: other_user.id)
+  def follow(user_id)
+    active_friendships.create(follow_target_id: user_id)
   end
 
-  def unfollow(other_user)
-    active_friendships.find_by(follow_target_id: other_user.id).destroy
+  def unfollow(user_id)
+    active_friendships.find_by(follow_target_id: user_id).destroy
   end
 
-  def following?(other_user)
-    followings.include?(other_user)
+  def following?(user)
+    followings.include?(user)
   end
 end
