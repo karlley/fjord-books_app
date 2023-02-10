@@ -4,13 +4,19 @@ class FriendshipsController < ApplicationController
   before_action :set_target_user, only: %i[create destroy]
 
   def create
-    current_user.follow(@target_user)
-    redirect_to user_path(@target_user), notice: t('.notice')
+    if current_user.follow(@target_user)
+      redirect_to user_path(@target_user), notice: t('.notice')
+    else
+      redirect_to user_path(@target_user), alert: t('.alert')
+    end
   end
 
   def destroy
-    current_user.unfollow(@target_user)
-    redirect_to user_path(@target_user), notice: t('.notice')
+    if current_user.unfollow(@target_user)
+      redirect_to user_path(@target_user), notice: t('.notice')
+    else
+      redirect_to user_path(@target_user), alert: t('.alert')
+    end
   end
 
   private
