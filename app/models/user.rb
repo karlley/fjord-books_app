@@ -12,12 +12,12 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_friendships, source: :follow_source
 
   def follow!(user)
-    active_friendships.create!(follow_target: user) unless active_friendships.where(follow_target: user).exists?
+    active_friendships.create!(follow_target: user)
   end
 
   def unfollow!(user)
-    active_friendship = active_friendships.find_by(follow_target: user)
-    active_friendship.destroy! if active_friendship.present?
+    active_friendship = active_friendships.find_by!(follow_target: user)
+    active_friendship.destroy!
   end
 
   def following?(user)
