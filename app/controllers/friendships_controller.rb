@@ -6,14 +6,18 @@ class FriendshipsController < ApplicationController
   def create
     current_user.follow!(@target_user)
     redirect_to user_path(@target_user), notice: t('.notice')
-  rescue ActiveRecord::RecordInvalid
+  rescue ActiveRecord::RecordInvalid => e
+    logger.error(e.class)
+    logger.error(e.message)
     redirect_to user_path(@target_user), alert: t('.alert')
   end
 
   def destroy
     current_user.unfollow!(@target_user)
     redirect_to user_path(@target_user), notice: t('.notice')
-  rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotDestroyed
+  rescue ActiveRecord::RecordNotFound, ActiveRecord::RecordNotDestroyed => e
+    logger.error(e.class)
+    logger.error(e.message)
     redirect_to user_path(@target_user), alert: t('.alert')
   end
 
