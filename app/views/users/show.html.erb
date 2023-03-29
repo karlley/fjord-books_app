@@ -29,9 +29,33 @@
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
   <% if @user.avatar.attached? %>
     <br>
-    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) %>
   <% end %>
 </p>
+
+<p>
+  <%= link_to user_followers_path(@user) do %>
+    <strong><%= t('.followers') %>:</strong>
+    <%= @user.followers.count %>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to user_followings_path(@user) do %>
+    <strong><%= t('.followings') %>:</strong>
+    <%= @user.followings.count %>
+  <% end %>
+</p>
+
+<% if current_user != @user %>
+  <div class="actions">
+    <% if current_user.following?(@user) %>
+      <%= button_to t('.unfollow'), user_friendships_path(@user), method: :delete %>
+    <% else %>
+      <%= button_to t('.follow'), user_friendships_path(@user), method: :post %>
+    <% end %>
+  </div>
+<% end %>
 
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |

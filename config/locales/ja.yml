@@ -238,3 +238,22 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  users:
+    show:
+      followers: "フォロワー"
+      followings: "フォロー中"
+      follow: "フォロー"
+      unfollow: "フォロー解除"
+    followers:
+      index:
+        title: "フォロワー"
+    followings:
+      index:
+        title: "フォロー中"
+  friendships:
+    create:
+      notice: "フォローしました"
+      alert: "フォローに失敗しました"
+    destroy:
+      notice: "フォロー解除しました"
+      alert: "フォロー解除に失敗しました"
