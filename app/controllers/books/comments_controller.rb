@@ -2,6 +2,7 @@
 
 class Books::CommentsController < ApplicationController
   before_action :set_commentable
+  before_action :set_comment, only: :destroy
 
   def create
     @comment = @commentable.comments.new(comments_params)
@@ -14,10 +15,19 @@ class Books::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment.destroy
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+  end
+
   private
 
   def set_commentable
     @commentable = Book.find(params[:book_id])
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 
   def comments_params
