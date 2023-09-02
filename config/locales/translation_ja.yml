@@ -1,16 +1,17 @@
 ja:
   activerecord:
     models:
-      book: 本  #g
+      book: 本 #g
       user: ユーザ
       report: 日報
+      comment: コメント
 
     attributes:
       book:
-        author: 著者  #g
-        memo: メモ  #g
-        picture: 画像  #g
-        title: 題名  #g
+        author: 著者 #g
+        memo: メモ #g
+        picture: 画像 #g
+        title: 題名 #g
       user:
         name: 氏名
         postal_code: 郵便番号
@@ -22,3 +23,5 @@ ja:
         content: 本文
         user_name: ユーザー名
         created_at: 投稿日
+      comment:
+        content: コメント

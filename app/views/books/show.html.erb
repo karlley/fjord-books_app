@@ -20,5 +20,28 @@
   <%= image_tag(@book.picture_url) if @book.picture.present? %>
 </p>
 
+<%= form_with(model: [@book, @comment], url: polymorphic_path([@book, @comment]), method: :post) do |form| %>
+
+  <% if flash[:errors].present? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% flash[:errors].each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+    <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
 <%= link_to t('views.common.edit'), edit_book_path(@book) %> |
 <%= link_to t('views.common.back'), books_path %>
