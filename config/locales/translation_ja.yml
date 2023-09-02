@@ -25,3 +25,5 @@ ja:
         created_at: 投稿日
       comment:
         content: コメント
+        comment_user: ユーザー
+        created_at: 投稿日

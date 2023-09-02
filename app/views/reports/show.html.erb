@@ -15,6 +15,36 @@
   <%= @report.content %>
 </p>
 
+<% if @comments.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th><%= Comment.human_attribute_name(:comment_user) %></th>
+        <th><%= Comment.human_attribute_name(:content) %></th>
+        <th><%= Comment.human_attribute_name(:created_at) %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @comments.each do |comment| %>
+        <% if comment.persisted? %>
+          <tr>
+            <td><%= comment.user.name_or_email %></td>
+            <td><%= comment.content %></td>
+            <td><%= l comment.created_at, format: :short %></td>
+            <% if comment.user == current_user %>
+              <td>削除</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>コメントはありません</p>
+<% end %>
+
 <%= form_with(model: [@report, @comment], url: polymorphic_path([@report, @comment]), method: :post) do |form| %>
 
   <% if flash[:errors].present? %>
