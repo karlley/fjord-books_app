@@ -21,9 +21,9 @@ ja:
       report:
         title: タイトル
         content: 本文
-        user_name: ユーザー名
+        user_name: ユーザ
         created_at: 投稿日
       comment:
         content: コメント
-        comment_user: ユーザー
+        comment_user: ユーザ
         created_at: 投稿日
