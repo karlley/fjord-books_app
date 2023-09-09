@@ -38,7 +38,7 @@
             <td><%= comment.user.name_or_email %></td>
             <td><%= comment.content %></td>
             <td><%= l comment.created_at, format: :short %></td>
-            <% if comment.user == current_user %>
+            <% if comment_user?(comment) %>
               <td><%= link_to t('views.common.destroy'), book_comment_url(@book, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
             <% end %>
           </tr>
@@ -66,7 +66,7 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, required: true %>
   </div>
     <div class="actions">
     <%= form.submit %>
