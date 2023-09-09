@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: keys)
   end
 
+  def authorize_owner
+    return if @comment.user == current_user
+
+    redirect_to @commentable, alert: t('controllers.common.alert_authorize_owner', name: Comment.model_name.human)
+  end
+
   private
 
   def after_sign_in_path_for(_resource_or_scope)

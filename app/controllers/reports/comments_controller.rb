@@ -3,6 +3,7 @@
 class Reports::CommentsController < ApplicationController
   before_action :set_commentable
   before_action :set_comment, only: :destroy
+  before_action :authorize_owner, only: :destroy
 
   def create
     @comment = @commentable.comments.new(comments_params)
