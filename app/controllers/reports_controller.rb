@@ -68,7 +68,6 @@ class ReportsController < ApplicationController
   end
 
   def authorize_owner
-    # redirect_to report_path unless @report.user == current_user
     return if @report.user == current_user
 
     redirect_to reports_url, alert: t('controllers.common.alert_authorize_owner', name: Report.model_name.human)
