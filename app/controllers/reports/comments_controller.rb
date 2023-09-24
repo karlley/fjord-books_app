@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Reports::CommentsController < ApplicationController
+class Reports::CommentsController < CommentsController
   before_action :set_commentable
   before_action :set_comment, only: :destroy
   before_action :authorize_owner, only: :destroy
