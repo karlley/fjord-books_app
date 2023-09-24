@@ -2,8 +2,6 @@
 
 class Books::CommentsController < CommentsController
   before_action :set_commentable
-  before_action :set_comment, only: :destroy
-  before_action :authorize_owner, only: :destroy
 
   def create
     @comment = @commentable.comments.new(comments_params)
@@ -17,18 +15,19 @@ class Books::CommentsController < CommentsController
   end
 
   def destroy
-    @comment.destroy
-    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    comment = Comment.find(params[:id])
+    if comment_author?(comment)
+      comment.destroy
+      redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    else
+      redirect_to @commentable, alert: t('controllers.common.alert_authorize_owner', name: Comment.model_name.human)
+    end
   end
 
   private
 
   def set_commentable
     @commentable = Book.find(params[:book_id])
-  end
-
-  def set_comment
-    @comment = Comment.find(params[:id])
   end
 
   def comments_params
