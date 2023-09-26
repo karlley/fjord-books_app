@@ -18,7 +18,7 @@
             <td><%= comment.user.name_or_email %></td>
             <td><%= comment.content %></td>
             <td><%= l comment.created_at, format: :short %></td>
-            <% if comment_user?(comment) %>
+            <% if comment.created_by?(current_user) %>
               <td><%= link_to t('views.common.destroy'), book_comment_url(@book, comment), method: :delete, data: { confirm: t('views.common.delete_confirm') } %></td>
             <% end %>
           </tr>
