@@ -16,7 +16,7 @@ class Books::CommentsController < CommentsController
 
   def destroy
     comment = Comment.find(params[:id])
-    if comment_author?(comment)
+    if comment.created_by?(current_user)
       comment.destroy
       redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
     else
