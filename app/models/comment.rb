@@ -6,7 +6,7 @@ class Comment < ApplicationRecord
 
   validates :content, presence: true
 
-  def created_by?(current_user)
-    user == current_user
+  def created_by?(target_user)
+    user == target_user
   end
 end
