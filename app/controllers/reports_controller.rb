@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.new(report_params)
     if @report.save
-      redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human) 
+      redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
     end
@@ -56,7 +56,7 @@ class ReportsController < ApplicationController
   end
 
   def authorize_owner
-    return if @report.user == current_user
+    return if @report.created_by?(current_user)
 
     redirect_to reports_url, alert: t('controllers.common.alert_authorize_owner', name: Report.model_name.human)
   end
